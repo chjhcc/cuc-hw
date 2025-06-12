@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "navigation-bar": "/components/navigation-bar/navigation-bar",
+    "game-board": "/components/game-board/game-board",
+    "dice": "/components/dice/dice",
+    "player-info": "/components/player-info/player-info"
+  }
+}

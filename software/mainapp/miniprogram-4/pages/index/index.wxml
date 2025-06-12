@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+  <navigation-bar title="大富翁" />
+  
+  <image class="bg-image" src="/images/cover.png" mode="aspectFill"/>
+  
+  <view class="content">
+    <view class="title">大富翁</view>
+    <view class="menu">
+      <button class="menu-btn" bindtap="startGame">开始游戏</button>
+      <button class="menu-btn" bindtap="goToSettings">游戏设置</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,138 @@
+<view class="settings-container">
+  <navigation-bar title="游戏设置" back="{{true}}" />
+  
+  <view class="settings-group">
+    <view class="settings-title">基础设置</view>
+    
+    <view class="settings-item">
+      <text>初始分数</text>
+      <slider 
+        min="1000" 
+        max="10000" 
+        step="500"
+        value="{{settings.initialScore}}"
+        bindchange="onInitialScoreChange"
+        show-value
+      />
+    </view>
+    
+    <view class="settings-item">
+      <text>过起点奖励</text>
+      <slider 
+        min="500" 
+        max="2000" 
+        step="100"
+        value="{{settings.passingStartBonus}}"
+        bindchange="onPassingStartBonusChange"
+        show-value
+      />
+    </view>
+    
+    <view class="settings-item">
+      <text>过路费</text>
+      <slider 
+        min="100" 
+        max="1000" 
+        step="100"
+        value="{{settings.tollFee}}"
+        bindchange="onTollFeeChange"
+        show-value
+      />
+    </view>
+    
+    <view class="settings-item">
+      <text>胜利分数</text>
+      <slider 
+        min="10000" 
+        max="50000" 
+        step="5000"
+        value="{{settings.winScore}}"
+        bindchange="onWinScoreChange"
+        show-value
+      />
+    </view>
+  </view>
+  
+  <view class="settings-group">
+    <view class="settings-title">游戏选项</view>
+    
+    <view class="settings-item">
+      <text>玩家数量</text>
+      <picker 
+        mode="selector" 
+        range="{{[2,3,4]}}" 
+        value="{{settings.playerCount-2}}"
+        bindchange="onPlayerCountChange"
+      >
+        <view class="picker-text">{{settings.playerCount}}人</view>
+      </picker>
+    </view>
+    
+    <view class="settings-item">
+      <text>音效</text>
+      <switch checked="{{settings.soundEnabled}}" bindchange="onSoundChange" />
+    </view>
+    
+    <view class="settings-item">
+      <text>动画效果</text>
+      <switch checked="{{settings.animationEnabled}}" bindchange="onAnimationChange" />
+    </view>
+  </view>
+  
+  <view class="settings-group">
+    <view class="settings-title">机会命运概率设置</view>
+    
+    <view class="settings-item">
+      <text>获得1000分</text>
+      <slider 
+        min="0" 
+        max="100" 
+        value="{{settings.chanceEventProbability.bonus1000}}"
+        bindchange="onChanceProbabilityChange"
+        data-event="bonus1000"
+        show-value
+      />
+    </view>
+    
+    <view class="settings-item">
+      <text>获得3000分</text>
+      <slider 
+        min="0" 
+        max="100" 
+        value="{{settings.chanceEventProbability.bonus3000}}"
+        bindchange="onChanceProbabilityChange"
+        data-event="bonus3000"
+        show-value
+      />
+    </view>
+    
+    <view class="settings-item">
+      <text>失去1000分</text>
+      <slider 
+        min="0" 
+        max="100" 
+        value="{{settings.chanceEventProbability.penalty1000}}"
+        bindchange="onChanceProbabilityChange"
+        data-event="penalty1000"
+        show-value
+      />
+    </view>
+    
+    <view class="settings-item">
+      <text>失去2500分</text>
+      <slider 
+        min="0" 
+        max="100" 
+        value="{{settings.chanceEventProbability.penalty2500}}"
+        bindchange="onChanceProbabilityChange"
+        data-event="penalty2500"
+        show-value
+      />
+    </view>
+  </view>
+  
+  <view class="button-group">
+    <button class="reset-btn" bindtap="resetSettings">重置设置</button>
+    <button class="save-btn" bindtap="saveSettings">保存设置</button>
+  </view>
+</view> 

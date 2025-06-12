@@ -1,0 +1,46 @@
+<view class="game-container">
+  <view class="header">
+    <view class="title">大富翁游戏</view>
+    <view class="current-player">
+      当前玩家：{{gameState.players[gameState.currentPlayerIndex].name}}
+    </view>
+  </view>
+  
+  <scroll-view class="game-scroll-view" scroll-y>
+    <view class="players-overview">
+      <view class="player-card {{index === gameState.currentPlayerIndex ? 'active' : ''}}" 
+            wx:for="{{gameState.players}}" 
+            wx:key="id">
+        <view class="player-name" style="color: {{item.color}}">{{item.name}}</view>
+        <view class="player-score">{{item.score}}分</view>
+        <view class="player-properties" wx:if="{{item.properties.length > 0}}">
+          拥有地产：{{item.properties.length}}处
+        </view>
+      </view>
+    </view>
+    
+    <view class="board-container">
+      <view class="game-area">
+        <game-board
+          id="gameBoard"
+          boardSize="{{600}}"
+          bind:stateUpdate="onGameStateUpdate"
+          bind:gameOver="onGameOver"
+        />
+        <view class="controls">
+          <dice 
+            wx:if="{{!gameState.gameOver}}"
+            bind:rolled="handleDiceRoll"
+            canRollDice="{{gameState.canRollDice}}"
+          />
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  
+  <view class="footer">
+    <view class="game-info">
+      <view class="total-score">总资产：{{gameState.totalScore}}分</view>
+    </view>
+  </view>
+</view> 

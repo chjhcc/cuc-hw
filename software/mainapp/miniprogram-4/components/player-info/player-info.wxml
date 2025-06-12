@@ -1,0 +1,23 @@
+<view class="player-info {{isCurrentPlayer ? 'current' : ''}} {{player.bankrupt ? 'bankrupt' : ''}}">
+  <view class="player-avatar" style="background-color: {{playerData.color}}">
+    {{playerData.name}}
+  </view>
+  <view class="player-details">
+    <view class="score">
+      <text>分数: {{playerData.score}}</text>
+      <text class="score-percentage" wx:if="{{playerData.scorePercentage}}">({{playerData.scorePercentage}}%)</text>
+    </view>
+    <view class="properties">
+      <text class="properties-title">拥有地产:</text>
+      <view class="properties-list">
+        <text wx:if="{{playerData.properties.length === 0}}" class="no-property">暂无</text>
+        <text wx:for="{{playerData.properties}}" 
+              wx:key="*this" 
+              class="property-item">
+          {{item}}
+        </text>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{isCurrentPlayer}}" class="current-marker">当前回合</view>
+</view> 

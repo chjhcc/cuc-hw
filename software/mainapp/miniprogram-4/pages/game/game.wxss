@@ -1,0 +1,163 @@
+.game-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 0;
+  background-color: #f5f5f5;
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+  padding: 40rpx 20rpx 20rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.current-player {
+  font-size: 28rpx;
+  text-align: center;
+  color: #666;
+}
+
+.players-overview {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.player-card {
+  width: calc(50% - 10rpx);
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.player-card.active {
+  transform: scale(1.02);
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.15);
+  border: 2rpx solid #4CAF50;
+}
+
+.player-name {
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.player-score {
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.player-properties {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.footer {
+  width: 100%;
+  padding: 20rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.game-info {
+  text-align: center;
+}
+
+.total-score {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.game-scroll-view {
+  flex: 1;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.board-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.game-area {
+  position: relative;
+  width: 100%;
+  max-width: 700rpx;
+  height: 700rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0rpx auto;
+  box-sizing: border-box;
+}
+
+.controls {
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+game-board {
+  width: 610rpx;
+  height: 610rpx;
+}
+
+.header {
+  width: 100%;
+  padding: 75rpx 20rpx 20rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.game-scroll-view {
+  flex: 1;
+  width: 100%;
+  overflow-y: auto;
+}
+
+/* 其他样式保持不变 */ 

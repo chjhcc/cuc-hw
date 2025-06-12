@@ -1,0 +1,9 @@
+<view class="dice-container {{!canRollDice ? 'disabled' : ''}}" bindtap="roll">
+  <view class="dice {{shakeAnimation ? 'shake' : ''}}" 
+        style="transform: rotateX({{rotateX}}deg) rotateY({{rotateY}}deg)">
+    <view class="dice-face">
+      {{diceNumber}}
+    </view>
+  </view>
+  <text class="dice-hint">点击骰子投掷</text>
+</view> 

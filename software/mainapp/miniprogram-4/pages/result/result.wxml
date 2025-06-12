@@ -1,0 +1,18 @@
+<view class="result-container">
+  <view class="winner-info">
+    <view class="winner-avatar" style="background-color: {{winner.color}}">
+      {{winner.name}}
+    </view>
+    <text class="winner-text">获得胜利！</text>
+    <text class="winner-score">最终得分: {{winner.score}}</text>
+  </view>
+  
+  <view class="other-players">
+    <view class="player-rank" wx:for="{{otherPlayers}}" wx:key="id">
+      <text>{{index + 2}}. {{item.name}}</text>
+      <text>{{item.score}}分</text>
+    </view>
+  </view>
+  
+  <button class="restart-btn" bindtap="restartGame">重新开始</button>
+</view> 

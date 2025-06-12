@@ -1,0 +1,110 @@
+.player-info {
+  display: flex;
+  padding: 12px;
+  margin: 5px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.current {
+  border: 2px solid #FFD700;
+  transform: scale(1.02);
+}
+
+.player-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.player-details {
+  flex: 1;
+  margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.score {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.properties {
+  font-size: 12px;
+  color: #666;
+}
+
+.properties-title {
+  margin-right: 4px;
+}
+
+.properties-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -2px;
+}
+
+.property-item {
+  background: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  margin: 2px;
+}
+
+.no-property {
+  color: #999;
+  font-style: italic;
+}
+
+.current-marker {
+  position: absolute;
+  top: -8px;
+  right: 8px;
+  background: #FFD700;
+  color: #333;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 动画效果 */
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+.current .player-avatar {
+  animation: pulse 1s alternate infinite ease-in-out;
+}
+
+/* 破产状态 */
+.player-info.bankrupt {
+  opacity: 0.5;
+  filter: grayscale(1);
+}
+
+.bankrupt .score {
+  color: #ff4444;
+}
+
+.score-percentage {
+  font-size: 12px;
+  color: #666;
+  margin-left: 8px;
+} 

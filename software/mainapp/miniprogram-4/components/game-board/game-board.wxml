@@ -1,0 +1,53 @@
+<view class="board" style="width: {{boardSize}}rpx; height: {{boardSize}}rpx;">
+  <view class="board-border">
+    <view 
+      wx:for="{{squares}}" 
+      wx:key="id"
+      class="square {{item.active ? 'active' : ''}} {{item.type}}"
+      style="left: {{item.x}}rpx; top: {{item.y}}rpx; width: {{boardSize/8 - 2}}rpx; height: {{boardSize/8 - 2}}rpx; background-color: {{item.ownerColor || '#fff'}}"
+      data-id="{{item.id}}"
+      bindtouchstart="handleSquareTouchStart"
+      bindtouchend="handleSquareTouchEnd"
+    >
+      <view class="square-content">
+        <text class="square-name">{{item.name}}</text>
+        <text class="square-price" wx:if="{{item.type === 'property'}}">{{item.price}}分</text>
+        <text class="square-level" wx:if="{{item.level > 1}}">{{item.level}}级</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 渲染玩家 -->
+  <view 
+    wx:for="{{gameState.players}}" 
+    wx:key="id"
+    class="player-token"
+    style="left: {{squares[item.position].x + boardSize/16}}rpx; top: {{squares[item.position].y + boardSize/16}}rpx; background-color: {{item.color}};"
+  />
+</view>
+
+<!-- 分数变化记录 -->
+<view class="score-log">
+  <view class="log-title">分数变化记录</view>
+  <view class="log-header">
+    <text class="log-time">时间</text>
+    <text class="log-player">玩家</text>
+    <text class="log-change">变化</text>
+    <text class="log-desc">说明</text>
+  </view>
+  <scroll-view class="log-content" scroll-y>
+    <view 
+      wx:for="{{scoreLogs}}" 
+      wx:key="timestamp"
+      class="log-item {{item.type}}"
+    >
+      <text class="log-time">{{item.time}}</text>
+      <text class="log-player">{{item.playerName}}</text>
+      <text class="log-change">{{item.amount > 0 ? '+' : ''}}{{item.amount}}分</text>
+      <text class="log-desc">{{item.desc}}</text>
+    </view>
+    <view wx:if="{{scoreLogs.length === 0}}" class="log-empty">
+      <text>暂无记录</text>
+    </view>
+  </scroll-view>
+</view> 
